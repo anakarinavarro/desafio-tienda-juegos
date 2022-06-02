@@ -1,8 +1,6 @@
 <template>
   <div>
-    <LottieAnimation ref="anim" path="./loading.json" v-if="loadingJuegos" />
     <hooper
-      v-if="!loadingJuegos"
       :centerMode="true"
       style="height: 400px"
       :infiniteScroll="true"
@@ -30,12 +28,11 @@ import {
   Navigation as HooperNavigation,
 } from 'hooper'
 
-import LottieAnimation from 'lottie-vuejs/src/LottieAnimation.vue'
+//import LottieAnimation from 'lottie-vuejs/src/LottieAnimation.vue'
 import { mapState } from 'vuex'
 
 export default {
   components: {
-    LottieAnimation,
     Hooper,
     Slide,
     HooperProgress,
@@ -45,7 +42,6 @@ export default {
   computed: {
     ...mapState('gamesList', {
       listGames: (state) => state.list,
-      loadingJuegos: (state) => state.loading,
     }),
   },
 }
